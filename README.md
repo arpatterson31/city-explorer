@@ -14,9 +14,6 @@ App allows visitors to search for a city which will run through a 3rd party API 
 
 ## Architecture
 
-- Languages: JavaScript
-- Libraries: React, Bootstrap, Axios
-
 - [Lab 06 drawing](https://drive.google.com/file/d/1COp-o_QtFy1UwTtn-KXYUZTggBChJH3O/view?usp=sharing)
 
 ![Lab 06 drawing done with Pair Programming Partner - Julien](./src/img/wrrlab06.png)
