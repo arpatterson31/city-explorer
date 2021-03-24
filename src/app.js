@@ -34,7 +34,7 @@ class App extends React.Component {
       const locationArray = location.data;
 
       const SERVER = 'http://localhost:3001';
-      const weather = await axios.get(`${SERVER}/weather`);
+      const weather = await axios.get(`${SERVER}/weather?${locationArray[0].lat}&lon=${locationArray[0].lon}`);
       
       this.setState({
         location: locationArray[0],
