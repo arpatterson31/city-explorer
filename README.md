@@ -14,6 +14,7 @@ App allows visitors to search for a city which will run through a 3rd party API 
 
 ## Architecture
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+
 ![Lab 06 drawing done with Pair Programming Partner - Julien](./src/img/wrrlab06.png)
 
 
