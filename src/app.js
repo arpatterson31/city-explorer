@@ -21,7 +21,8 @@ class App extends React.Component {
       displayResults: false,
       mapSrc: '',
       errMsg: {},
-      returnsError: false
+      returnsError: false,
+      weatherArray: []
     }
   }
 
@@ -29,13 +30,19 @@ class App extends React.Component {
     e.preventDefault();
     try {
       const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_KEY}&q=${this.state.locationSearch}&format=json`;
-      const location = await axios.get(url)
+      const location = await axios.get(url);
       const locationArray = location.data;
+
+      const SERVER = 'http://localhost:3001';
+      const weather = await axios.get(`${SERVER}/weather`);
+      
       this.setState({
-          location: locationArray[0],
-          displayResults: true,
-          mapSrc: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${locationArray[0].lat},${locationArray[0].lon}&zoom=15&markers=icon:small-red-cutout|${locationArray[0].lat},${locationArray[0].lon}`
-        })
+        location: locationArray[0],
+        displayResults: true,
+        mapSrc: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${locationArray[0].lat},${locationArray[0].lon}&zoom=15&markers=icon:small-red-cutout|${locationArray[0].lat},${locationArray[0].lon}`,
+        weatherArray: weather.data
+        
+      })
     }catch(error) {
       console.log(error.message);
       this.setState({
@@ -80,6 +87,7 @@ class App extends React.Component {
         />
 
         <Weather
+          weather={this.state.weatherArray.forecastArray}
         />
 
         <Footer />
