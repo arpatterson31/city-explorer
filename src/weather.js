@@ -13,8 +13,7 @@ class Weather extends React.Component {
         {forecastData.map((element, index) => (
           <WeatherDay key={index} date={element.date} description={element.description} />
         ))}
-      </Card
-      >
+      </Card>
      
       </>
     );
