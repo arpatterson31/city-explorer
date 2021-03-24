@@ -3,6 +3,7 @@ import Header from './header';
 import Footer from './footer';
 import City from './city';
 import Error from './error';
+import Weather from './weather';
 import './app.css';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -78,6 +79,8 @@ class App extends React.Component {
           mapSrc={this.state.mapSrc}
         />
 
+        <Weather
+        />
 
         <Footer />
 
