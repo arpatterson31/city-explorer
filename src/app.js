@@ -22,7 +22,8 @@ class App extends React.Component {
       mapSrc: '',
       errMsg: {},
       returnsError: false,
-      weatherArray: []
+      weatherArray: [],
+      
     }
   }
 
@@ -33,8 +34,10 @@ class App extends React.Component {
       const location = await axios.get(url);
       const locationArray = location.data;
 
-      const SERVER = 'https://city-explorer-301d.herokuapp.com';
-      const weather = await axios.get(`${SERVER}/weather?${locationArray[0].lat}&lon=${locationArray[0].lon}`);
+      const SERVER = 'http://localhost:3001'
+      // const weather = await axios.get(`${process.env.SERVER}/weather`, { params: {city: this.state.locationSearch}});
+
+      const weather = await axios.get(`${SERVER}/weather`, { params: {city: this.state.locationSearch}});
       
       this.setState({
         location: locationArray[0],
@@ -42,7 +45,7 @@ class App extends React.Component {
         mapSrc: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${locationArray[0].lat},${locationArray[0].lon}&zoom=15&markers=icon:small-red-cutout|${locationArray[0].lat},${locationArray[0].lon}`,
         weatherArray: weather.data
        });
-      //  console.log("state", this.state.weatherArray.forecastArray);
+       console.log("state", this.state.weatherArray);
     }catch(error) {
       console.log(error.message);
       this.setState({
@@ -88,7 +91,7 @@ class App extends React.Component {
         {this.state.displayResults &&
           <>
           <Weather
-            weather={this.state.weatherArray.forecastArray}
+            weather={this.state.weatherArray}
           />
           </>
         }
