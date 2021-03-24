@@ -41,8 +41,8 @@ class App extends React.Component {
         displayResults: true,
         mapSrc: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${locationArray[0].lat},${locationArray[0].lon}&zoom=15&markers=icon:small-red-cutout|${locationArray[0].lat},${locationArray[0].lon}`,
         weatherArray: weather.data
-        
-      })
+       });
+      //  console.log("state", this.state.weatherArray.forecastArray);
     }catch(error) {
       console.log(error.message);
       this.setState({
@@ -85,10 +85,13 @@ class App extends React.Component {
           displayResults={this.state.displayResults}
           mapSrc={this.state.mapSrc}
         />
-
-        <Weather
-          weather={this.state.weatherArray.forecastArray}
-        />
+        {this.state.displayResults &&
+          <>
+          <Weather
+            weather={this.state.weatherArray.forecastArray}
+          />
+          </>
+        }
 
         <Footer />
 
