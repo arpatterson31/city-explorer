@@ -1,23 +1,24 @@
 # City Explorer
 
 - **Author**: Audrey Patterson
-- **Version**: 1.0.2 (increment the patch/fix version number if you make more commits past your first submission)
+- **Version**: 2.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 - [**Deployed Site**](https://epic-hodgkin-57acb3.netlify.app)
 - [Trello](https://trello.com/b/Fgsz0oFI/city-explorer)
 
 ## Overview
 
-App allows visitors to search for a city which will run through a 3rd party API to display latitude, longitude, and a map of the city queried.
+App allows visitors to search for a city which will run through a 3rd party API to display latitude, longitude, and a map of the city queried. It will also display weather forecast for the city queried.
 
 ## Getting Started
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+
 - [Lab 06 drawing](https://drive.google.com/file/d/1COp-o_QtFy1UwTtn-KXYUZTggBChJH3O/view?usp=sharing)
 
 ![Lab 06 drawing done with Pair Programming Partner - Julien](./src/img/wrrlab06.png)
 
+- [Lab 07 drawing](https://drive.google.com/file/d/1aUdTp67oMkd0TxtA_iavXAGEtmD3Td_2/view?usp=sharing)
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
@@ -42,12 +43,19 @@ App allows visitors to search for a city which will run through a 3rd party API 
   - Finish time: 9:37pm - not fully completed. can't get error message to show
   - Actual time needed to complete: 2 hours - split between a few start and stop times
 
+- Name of feature: Lab 07 Front-end
+  - Estimate of time needed to complete: 2 hrs
+  - Start time: 8:05pm
+  - Finish time: 9:39pm
+  - Actual time needed to complete: 1 hour 34 minutes
+
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 - [Stack Overflow string for catching errors](https://stackoverflow.com/questions/49967779/axios-handling-errors)
 - [MDB Text for bootstrap](https://mdbootstrap.com/docs/react/utilities/text/)
 - [MDB Sizing for bootstrap](https://mdbootstrap.com/docs/react/utilities/sizing/)
 - [MDB Display for bootstrap](https://mdbootstrap.com/docs/react/utilities/display/)
+- TA Kory Jackson helped on the API back-end portion
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
