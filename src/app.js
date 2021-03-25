@@ -34,10 +34,10 @@ class App extends React.Component {
       const location = await axios.get(url);
       const locationArray = location.data;
 
-      const SERVER = 'http://localhost:3001'
-      // const weather = await axios.get(`${process.env.SERVER}/weather`, { params: {city: this.state.locationSearch}});
+      // const SERVER = 'http://localhost:3001'
+      const weather = await axios.get(`${process.env.SERVER}/weather`, { params: {city: this.state.locationSearch}});
 
-      const weather = await axios.get(`${SERVER}/weather`, { params: {city: this.state.locationSearch}});
+      // const weather = await axios.get(`${SERVER}/weather`, { params: {city: this.state.locationSearch}});
       
       this.setState({
         location: locationArray[0],
