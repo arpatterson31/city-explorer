@@ -34,7 +34,7 @@ class App extends React.Component {
       const location = await axios.get(url);
       const locationArray = location.data;
 
-      const SERVER = 'http://localhost:3001'
+      const SERVER = 'https://city-explorer-301d.herokuapp.com'
       // const weather = await axios.get(`${process.env.SERVER}/weather`, { params: {city: this.state.locationSearch}});
 
       const weather = await axios.get(`${SERVER}/weather`, { params: {city: this.state.locationSearch}});
