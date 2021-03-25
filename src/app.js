@@ -33,20 +33,34 @@ class App extends React.Component {
       const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_KEY}&q=${this.state.locationSearch}&format=json`;
       const location = await axios.get(url);
       const locationArray = location.data;
-
-      const SERVER = 'https://city-explorer-301d.herokuapp.com'
-      // const weather = await axios.get(`${process.env.SERVER}/weather`, { params: {city: this.state.locationSearch}});
-
-      const weather = await axios.get(`${SERVER}/weather`, { params: {city: this.state.locationSearch}});
-      
       this.setState({
         location: locationArray[0],
         displayResults: true,
         mapSrc: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${locationArray[0].lat},${locationArray[0].lon}&zoom=15&markers=icon:small-red-cutout|${locationArray[0].lat},${locationArray[0].lon}`,
-        weatherArray: weather.data
-       });
-       console.log("state", this.state.weatherArray);
-    }catch(error) {
+      });
+
+      this.getWeather(locationArray[0]);
+
+    } catch(error) {
+      console.log(error.message);
+      this.setState({
+        returnsError: true,
+        errMsg: error.message,
+      })
+    }
+  }  
+
+  getWeather = async (location) => {
+    try{
+      const weather = await axios.get(`${process.env.REACT_APP_SERVER}/weather`, { params: {lat: location.lat, lon: location.lon}});
+
+      console.log(weather.data);
+      this.setState({
+        weatherArray: weather.data,
+        displayResults: true,
+      });
+
+    }catch(error){
       console.log(error.message);
       this.setState({
         returnsError: true,
@@ -54,6 +68,25 @@ class App extends React.Component {
       });
     }
   }
+      // const SERVER = 'https://city-explorer-301d.herokuapp.com'
+
+      // const weather = await axios.get(`${SERVER}/weather`, { params: {city: this.state.locationSearch}});
+      
+  //     this.setState({
+  //       location: locationArray[0],
+  //       displayResults: true,
+  //       mapSrc: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${locationArray[0].lat},${locationArray[0].lon}&zoom=15&markers=icon:small-red-cutout|${locationArray[0].lat},${locationArray[0].lon}`,
+  //       weatherArray: weather.data
+  //      });
+  //      console.log("state", this.state.weatherArray);
+  //   }catch(error) {
+  //     console.log(error.message);
+  //     this.setState({
+  //       returnsError: true,
+  //       errMsg: error.message,
+  //     });
+  //   }
+  // }
 
   render() {
     return (
