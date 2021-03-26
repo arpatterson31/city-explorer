@@ -11,6 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container'
 
 
 class App extends React.Component {
@@ -92,9 +93,10 @@ class App extends React.Component {
   render() {
     return (
       <>
+      <Container fluid>
         <Header />
         
-        <Form inline className="w-responsive text-center mx-auto p-3 mt-2" onSubmit={this.getLocationData}>
+        <Form inline className="text-center mx-auto p-3 mt-2" onSubmit={this.getLocationData}>
           <Form.Row >
             <Col>
              <Form.Group >
@@ -134,8 +136,8 @@ class App extends React.Component {
           </>
         }
 
-        <Footer />
-
+         <Footer />
+        </Container>
       </>
     );
   }

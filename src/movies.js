@@ -9,8 +9,8 @@ class Movies extends React.Component {
     let movieData = this.props.movies;
     return(
       <>
-      <Card bg="secondary">
-        <Card.Title><h3>🍿 Movies about {this.props.city} 🍿</h3></Card.Title>
+      <Card className="w-75 text-center mx-auto p-3 mt-2" bg="secondary">
+        <Card.Title><h3>🎞️ Movies about {this.props.city} 🍿</h3></Card.Title>
         {movieData.slice(0,10).map((element, index) => (
           <div key={index}>
             <MovieList 
