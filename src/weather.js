@@ -9,12 +9,15 @@ class Weather extends React.Component {
     let forecastData = this.props.weather;
     return (
       <>
-      <Card bg="secondary">
+      <div className="pb-5">
+      <Card  bg="secondary">
         <Card.Title><h3>🌤️ 7 Day Forecast 🌧️</h3></Card.Title>
         {forecastData.map((element, index) => (
           <WeatherDay key={index} date={element.date} description={element.description} />
         ))}
       </Card>
+
+      </div>
      
       </>
     );

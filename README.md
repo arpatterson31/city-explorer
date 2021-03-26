@@ -20,6 +20,10 @@ App allows visitors to search for a city which will run through a 3rd party API 
 
 - [Lab 07 drawing](https://drive.google.com/file/d/1aUdTp67oMkd0TxtA_iavXAGEtmD3Td_2/view?usp=sharing)
 
+- LAB 08 Drawing
+
+![Lab 08 drawing done with pair programming](./src/img/lab08wrr.png)
+
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
 
@@ -48,6 +52,12 @@ App allows visitors to search for a city which will run through a 3rd party API 
   - Start time: 8:05pm
   - Finish time: 9:39pm
   - Actual time needed to complete: 1 hour 34 minutes
+
+- Name of feature: Lab 08 Movies Front-end
+  - Estimate of time needed to complete: 2 hrs
+  - Start time: 1:40 pm
+  - Finish time: 4:00 pm
+  - Actual time needed to complete: 2 hrs 20minutes
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->

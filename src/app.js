@@ -4,6 +4,7 @@ import Footer from './footer';
 import City from './city';
 import Error from './error';
 import Weather from './weather';
+import Movies from './movies.js';
 import './app.css';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,7 +24,7 @@ class App extends React.Component {
       errMsg: {},
       returnsError: false,
       weatherArray: [],
-      
+      movieArray: [],
     }
   }
 
@@ -38,8 +39,8 @@ class App extends React.Component {
         displayResults: true,
         mapSrc: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${locationArray[0].lat},${locationArray[0].lon}&zoom=15&markers=icon:small-red-cutout|${locationArray[0].lat},${locationArray[0].lon}`,
       });
-
       this.getWeather(locationArray[0]);
+      this.getMovie();
 
     } catch(error) {
       console.log(error.message);
@@ -54,7 +55,7 @@ class App extends React.Component {
     try{
       const weather = await axios.get(`${process.env.REACT_APP_SERVER}/weather`, { params: {lat: location.lat, lon: location.lon}});
 
-      console.log(weather.data);
+      // console.log(weather.data);
       this.setState({
         weatherArray: weather.data,
         displayResults: true,
@@ -68,25 +69,25 @@ class App extends React.Component {
       });
     }
   }
-      // const SERVER = 'https://city-explorer-301d.herokuapp.com'
 
-      // const weather = await axios.get(`${SERVER}/weather`, { params: {city: this.state.locationSearch}});
-      
-  //     this.setState({
-  //       location: locationArray[0],
-  //       displayResults: true,
-  //       mapSrc: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${locationArray[0].lat},${locationArray[0].lon}&zoom=15&markers=icon:small-red-cutout|${locationArray[0].lat},${locationArray[0].lon}`,
-  //       weatherArray: weather.data
-  //      });
-  //      console.log("state", this.state.weatherArray);
-  //   }catch(error) {
-  //     console.log(error.message);
-  //     this.setState({
-  //       returnsError: true,
-  //       errMsg: error.message,
-  //     });
-  //   }
-  // }
+  getMovie = async () => {
+    try{
+      console.log('here');
+      const movies = await axios.get(`${process.env.REACT_APP_SERVER}/movies`, { params: { city: this.state.locationSearch }});
+      console.log(movies.data);
+      this.setState({
+        movieArray: movies.data,
+        displayResults: true,
+      });
+
+    }catch(error){
+      console.log(error.message);
+      this.setState({
+        returnsError: true,
+        errMsg: error.message,
+      });
+    }
+  }
 
   render() {
     return (
@@ -125,6 +126,10 @@ class App extends React.Component {
           <>
           <Weather
             weather={this.state.weatherArray}
+          />
+          <Movies
+            city={this.state.locationSearch}
+            movies={this.state.movieArray}
           />
           </>
         }
