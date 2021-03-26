@@ -59,6 +59,12 @@ App allows visitors to search for a city which will run through a 3rd party API 
   - Finish time: 4:00 pm
   - Actual time needed to complete: 2 hrs 20minutes
 
+- Name of feature: Lab 09 Movies Front-end
+  - Estimate of time needed to complete: 2 hrs
+  - Start time: 9:50 pm
+  - Finish time: 10:29 pm
+  - Actual time needed to complete: 39minutes
+
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 - [Stack Overflow string for catching errors](https://stackoverflow.com/questions/49967779/axios-handling-errors)
