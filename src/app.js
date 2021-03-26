@@ -128,6 +128,7 @@ class App extends React.Component {
             weather={this.state.weatherArray}
           />
           <Movies
+            city={this.state.locationSearch}
             movies={this.state.movieArray}
           />
           </>
